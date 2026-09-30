@@ -1,4 +1,4 @@
-name: Deploy Express API to Vercel
+name: Test and Deploy Express API to Vercel
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  deploy:
+  test-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +20,10 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
 
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
