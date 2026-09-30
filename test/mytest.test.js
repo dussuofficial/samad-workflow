@@ -1,8 +1,7 @@
 const request = require("supertest");
-const app = require("./server");
+const app = require("../src/server");
 
 describe("Express API Tests", () => {
-
   test("GET / should return API running message", async () => {
     const response = await request(app).get("/");
 
@@ -20,5 +19,4 @@ describe("Express API Tests", () => {
       status: "ok"
     });
   });
-
 });
